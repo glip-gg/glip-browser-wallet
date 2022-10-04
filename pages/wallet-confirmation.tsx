@@ -9,7 +9,8 @@ import TransactionInformationComponent from '../components/wallet-confirmation/T
 import Loader from "../components/uiComponents/Loader";
 
 
-const UserWalletConfirmationPage = (props:any) => {    
+const UserWalletConfirmationPage = (props:any) => {
+    
     const [width, setWidth] = useState<number>(0);
     const [transactionDetails, setTransactionDetails] = useState<any>(null);
     const [fiatCurrency, setFiatCurrency] = useState('usd');
