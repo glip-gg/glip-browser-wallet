@@ -63,7 +63,6 @@ export class WalletService {
     clientIdentifier?:string;
     authNetwork:any;
     connectedSocket?:Socket;
-    torusdirectsdk: TorusSdk|undefined;
     internalTransactionService?:InternalTransactionService;
     isInitialized:boolean=false;
     isMobileSDK: boolean=false;
@@ -79,7 +78,6 @@ export class WalletService {
         this.clientIdentifier = clientIdentifier;
         this.authNetwork = authNetwork;
         this.initializeWebSocket();
-        await this.initializeTorus();
         this.isInitialized = true;
         this.isMobileSDK = isMobileSDK;
         if((window as any).top){
@@ -134,25 +132,7 @@ export class WalletService {
         });        
     }
     
-    async initializeTorus(){
-        try {
-            this.torusdirectsdk = new TorusSdk({
-                baseUrl: BASE_URL,
-                enableLogging: true,
-                network: this.authNetwork, // details for testnet.
-                uxMode: "redirect",
-                redirectPathName: ''
-            });
-            await this.torusdirectsdk.init({
-                skipSw: true,
-                skipPrefetch: true
-            });
-        } catch (error) {
-            console.error(error, "mounted caught");
-        }
-    }
-    
-    
+       
     isConnected(){
         let loginInformation = getGlipWalletData();
         if(!loginInformation){
