@@ -19,6 +19,7 @@
     "react-loader-spinner": "^5.3.4",
     "socket.io": "^4.5.2",
     "socket.io-client": "^4.5.2",
+    "styled-components": "^5.3.6",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
